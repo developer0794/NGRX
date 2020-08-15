@@ -1,0 +1,66 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active">Sign Up</h2>
+    <h2 class="inactive underlineHover">Sign In</h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <!-- <img
+        src="http://danielzawadzki.com/codepen/01/icon.svg"
+        id="icon"
+        alt="User Icon"
+      /> -->
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="register">
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second input-cu"
+        name="userName"
+        placeholder="User Name"
+        formControlName="username"
+      />
+      <input
+        type="email"
+        id="login"
+        class="fadeIn second input-cu"
+        name="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <input
+        type="password"
+        id="password"
+        class="fadeIn third input-cu"
+        name="login"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <input
+        [disabled]="isSubmitting$ | async"
+        type="submit"
+        class="fadeIn fourth"
+        value="Log In"
+        (click)="saveData()"
+      />
+    </form>
+
+    <!-- error-messages -->
+
+    <ul *ngIf="backendErrors$ | async">
+      <li *ngFor="let item of errorMessages">
+        {{ item }}
+      </li>
+    </ul>
+
+    <!-- {{ backendErrors$ | async }} -->
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+  </div>
+</div>
